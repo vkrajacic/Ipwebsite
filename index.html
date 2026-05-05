@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>SipSociety Coffee</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7c3f00;
+      --accent: #c68958;
+      --bg: #faf6f2;
+      --white: #fff;
+      --dim: #e9e4dd;
+      --text: #2c2112;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(44,33,18,0.08);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    body {
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 60px 0 50px 0;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0 0 12px 0;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+    header p {
+      color: var(--dim);
+      font-size: 1.3rem;
+      margin-bottom: 38px;
+      font-weight: 400;
+    }
+    .cta-btn {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 18px 38px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background 0.2s;
+    }
+    .cta-btn:hover {
+      background: #8c5201;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+    @media (max-width: 768px) {
+      section {
+        padding: 40px 0;
+      }
+      header h1 {
+        font-size: 2.1rem;
+      }
+    }
+    .features, .benefits {
+      display: flex;
+      gap: 38px;
+      flex-wrap: wrap;
+    }
+    .feature, .benefit {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 22px;
+      flex: 1 1 270px;
+      min-width: 220px;
+      margin-bottom: 16px;
+    }
+    .feature h3, .benefit h3 { margin-top:0; margin-bottom:10px; font-size:1.19rem;}
+    .feature p, .benefit p { margin:0; }
+
+    @media (max-width: 900px) {
+      .features, .benefits { flex-direction: column; gap: 18px;}
+    }
+
+    .testimonials {
+      background: var(--accent);
+      color: var(--white);
+      border-radius: var(--radius);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      padding: 40px 35px;
+      box-shadow: var(--shadow);
+    }
+    .testimonial {
+      flex: 1 1 320px;
+      min-width: 220px;
+    }
+    .testimonial p {
+      font-size: 1.11rem;
+      font-style: italic;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    .testimonial strong {
+      display: inline-block;
+      font-size: 1.06rem;
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .testimonials { flex-direction: column; padding: 32px 18px;}
+    }
+
+    .pricing-table {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .plan {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 32px 22px;
+      text-align: center;
+      flex: 1 1 260px;
+      min-width: 220px;
+      border: 2px solid var(--dim);
+      transition: border .18s;
+      margin-bottom: 16px;
+    }
+    .plan.featured {
+      border: 2px solid var(--primary);
+    }
+    .plan h4 {
+      margin-top:0;margin-bottom:8px;font-size:1.22rem;
+    }
+    .plan .price {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+      margin-top: 7px;
+    }
+    .plan ul {
+      list-style:none;padding: 0;margin-bottom: 18px;
+    }
+    .plan li {
+      margin-bottom:6px;
+      color: var(--text);
+    }
+    .plan button {
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    /* Contact Form */
+    #contact {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px 28px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1.2px solid var(--dim);
+      margin-bottom: 18px;
+      font-size: 1rem;
+      background: var(--bg);
+      resize: vertical;
+    }
+    form button {
+      width: 100%;
+      padding: 16px 0;
+      font-size: 1.09rem;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0 10px;}
+      #contact { padding: 24px 8px;}
+    }
+
+    footer {
+      text-align: center;
+      color: #8b7760;
+      padding: 32px 0 16px 0;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      background: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>You know this routine.</h1>
+      <p>Redefine your coffee ritual with SipSociety—exceptional, ethically sourced coffee for everyday fuel and community.</p>
+      <a href="#pricing"><button class="cta-btn">Join SipSociety Today</button></a>
+    </div>
+  </header>
+  
+  <main>
+    <section class="container" id="features">
+      <h2 style="text-align:center; margin-bottom:32px;">Why SipSociety?</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>Handpicked Beans</h3>
+          <p>Our beans are sourced directly from sustainable farms, ensuring every cup is packed with robust flavor and ethical integrity.</p>
+        </div>
+        <div class="feature">
+          <h3>Freshly Roasted</h3>
+          <p>Coffee is roasted in small batches and shipped at peak freshness—taste the difference in every sip.</p>
+        </div>
+        <div class="feature">
+          <h3>Flexible Subscriptions</h3>
+          <p>Customize your delivery, frequency, and blend with ease. Pause, skip, or cancel anytime—no hassle, just great coffee.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="benefits">
+      <h2 style="text-align:center; margin-bottom:32px;">Transform Your Coffee Experience</h2>
+      <div class="benefits">
+        <div class="benefit">
+          <h3>Wake Up Inspired</h3>
+          <p>Start your mornings strong with coffee tailored to your taste profile and lifestyle.</p>
+        </div>
+        <div class="benefit">
+          <h3>Sustainably Sourced</h3>
+          <p>Every purchase supports fair practices and empowers small-scale farmers globally.</p>
+        </div>
+        <div class="benefit">
+          <h3>Connection in Every Cup</h3>
+          <p>As part of SipSociety, you join a vibrant community of coffee lovers, exclusive events, curated content, and member perks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="container">
+      <h2 style="text-align:center; margin-bottom:32px;">Our Members Love SipSociety</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>“SipSociety has completely changed the way I start my days. The freshness and taste is unbeatable—I love being part of this community.”</p>
+          <strong>Emily R.</strong>
+        </div>
+        <div class="testimonial">
+          <p>“From the first cup, I knew I was drinking something special. I appreciate the sustainability and the flexibility in my subscription!”</p>
+          <strong>Jorge P.</strong>
+        </div>
+        <div class="testimonial">
+          <p>“Member perks and events are such a fun bonus—but the coffee is the real hero, every time.”</p>
+          <strong>Anita D.</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="container">
+      <h2 style="text-align:center; margin-bottom:32px;">Simple, Flexible Pricing</h2>
+      <div class="pricing-table">
+        <div class="plan">
+          <h4>Starter</h4>
+          <div class="price">$12<span style="font-size:0.97rem;">/bag</span></div>
+          <ul>
+            <li>1 bag/month</li>
+            <li>Choose your roast</li>
+            <li>Free delivery</li>
+          </ul>
+          <button class="cta-btn">Get Started</button>
+        </div>
+        <div class="plan featured">
+          <h4>Enthusiast</h4>
+          <div class="price">$22<span style="font-size:0.97rem;">/month</span></div>
+          <ul>
+            <li>2 bags/month</li>
+            <li>Mix & match blends</li>
+            <li>Priority support</li>
+            <li>Member events access</li>
+          </ul>
+          <button class="cta-btn">Join Enthusiast</button>
+        </div>
+        <div class="plan">
+          <h4>Society Pro</h4>
+          <div class="price">$32<span style="font-size:0.97rem;">/month</span></div>
+          <ul>
+            <li>4 bags/month</li>
+            <li>Exclusive micro-lot options</li>
+            <li>All member perks</li>
+          </ul>
+          <button class="cta-btn">Level Up</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:48px;">
+      <h2 style="text-align:center; margin-bottom:32px;">Ready to Sip Something New?</h2>
+      <form id="leadform" autocomplete="on">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="Name">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required placeholder="Email address">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required placeholder="How can we help?"></textarea>
+        <button class="cta-btn" type="submit">Contact SipSociety</button>
+      </form>
+    </section>
+  </main>
+  
+  <footer>
+    © 2024 SipSociety Coffee &middot; Crafted with passion for coffee lovers
+  </footer>
+</body>
+</html>
